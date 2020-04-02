@@ -15,6 +15,9 @@ function send() {
       if(response == "成功"){
         alert("成功");
       }
+      else{
+      	alert("幹");
+      }
     },
   });
 };

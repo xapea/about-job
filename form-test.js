@@ -1,4 +1,4 @@
-let sendButton = document.querySelector('button');
+let sendButton = document.querySelector('#cool');
 
 function send() {
   let name = document.querySelector('#nameValue').value;

@@ -1,6 +1,7 @@
 let sendButton = document.querySelector('#cool');
 
 function send() {
+
   let name = document.querySelector('#nameValue').value;
   let phone = document.querySelector('#phoneValue').value;
   let demand = document.querySelector('#demandValue').value;
@@ -19,6 +20,11 @@ function send() {
       	alert("幹");
       }
     },
+    error: function(XMLHttpRequest, textStatus, errorThrown) {
+alert(XMLHttpRequest.status);
+alert(XMLHttpRequest.readyState);
+alert(textStatus);
+},
   });
 };
 

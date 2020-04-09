@@ -24,10 +24,21 @@
 
 .header{
   width: 100%;
-  height: 820px;
-  background-color: #d1d1d1;
-  border: 1px solid #888888;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 0 0;
+  padding: 120px 0 120px 0;
+  background-color: #f1f3fc;
 }
+
+.header_middle{
+  margin: 0 13px 0 13px;
+}
+
+.header_left2, .header_right2{
+  margin: 10px 0 0 0;
+}
+
 
 .title{
   width: 1000px;

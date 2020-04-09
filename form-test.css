@@ -1,3 +1,584 @@
-body{
-	background-color: gray;
+
+/* 引入工作狀態的字體 */
+@font-face{
+  font-family: 'cwTeXYen';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.ttf) format('truetype');
+}
+
+
+
+
+*{
+  position: relative; 
+  box-sizing: border-box;
+  color: gray;
+  margin: 0px;
+/*   border: 0.1px solid black; */
+}
+
+
+.header{
+  width: 100%;
+  height: 820px;
+  background-color: #d1d1d1;
+  border: 1px solid #888888;
+}
+
+.title{
+  width: 1000px;
+  margin: 300px auto;
+  margin-bottom: 20px;
+  font-family: 微軟正黑體;
+  font-size: 55px;
+  letter-spacing: 5px;
+  color: gray;
+  text-align: center;
+}
+
+.sub_title{
+  width: 1000px;
+  margin: 10px auto;
+  padding: 0 0 0 0;
+  font-size: 30px;
+  font-family: "Comic Neue", cursive;
+  color: gray;
+  text-align: center;
+}
+
+.intro_text{
+  width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+
+
+/* 小人排排站整個區域 */
+.wall{
+  width: 1021px;
+  margin: 150px auto;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+/* 單顆小頭的整個單位區域 */
+.head_area{
+  width: 180px;
+  height: 238px;
+  padding: 15px 5px 0 5px;
+  margin: 10px 10px 40px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition-duration: 0.1s;
+}
+
+
+
+
+/* 編號 */
+.num{
+  color: #a6a6a6;
+  font-size: 25px;
+  font-family: "Comic Neue", cursive;
+  font-style: italic;
+  margin: 0 0 6px 0;
+}
+
+
+/* 插畫頭像圓形框 */
+.head{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 0 0 0;
+  overflow: hidden;
+}
+
+
+/* 暱稱、怎麼稱呼自己 */
+.name{
+  width: 100%;
+  height: 25px;
+  margin: 10px 0 0 0;
+  text-align: center;
+  font-size: 18px;
+  color: black;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+/* 職稱、形容自己在做的事 */
+.job_title{
+  width: 90%;
+  height: 26px;
+  margin: 4px 0 0 0;
+  color: #c7c7c7;
+  text-align: center;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+/* 工作狀態框 */
+.head_svg{
+  position: absolute;
+  left: 118px;
+  top: 15px;
+  width: 50%;
+}
+  
+/* 工作狀態的文字內容 */
+.head_svg text{
+  fill: white;
+  stroke: white;
+  stroke-width: 1px;
+  font-family: cwTeXYen;
+  font-size: 38px;
+}
+
+/* 工作狀態框的顏色 */
+/* 快樂工作中 */
+.enjoying{
+  fill: #eb546b;
+}
+
+/* 思考轉職中 */
+.turning{
+  fill: #4f88b0;
+}
+
+/* 爆肝工作中 */
+.burning{
+  fill: #7871ab;
+}
+
+/* 悠閒放假中 */
+.relaxing{
+  fill: #3dd196;
+}
+
+
+
+
+/* head_area的hover設定 */
+.head_svg{
+  opacity: 0;
+}
+
+.head_area:hover .head_svg{
+  opacity: 1;
+  transition-delay: 0.2s;
+  transition-duration: 0.3s;
+  
+}
+
+.head_area:hover .num{
+  color: black;
+}
+
+.head_area:hover .job_title{
+  color: white;
+  background-color: #a6a6a6;
+  border-radius: 20px;
+}
+
+.head_area:hover{
+  
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  }
+
+.head_area:hover .bi-1{
+  fill: #FFB807;
+}
+
+.head_area:hover .b-1{
+  fill: #FFB807;
+}
+
+.head_area:hover .e-1{
+  fill: #FFB807;
+}
+
+.head_area:hover .s-1{
+  fill: #FFB807;
+}
+
+.head_area:hover .r-1{
+  fill: #FFB807;
+}
+
+
+/*以下都是名片*/
+.namecard{
+  width: 1120px;
+  height: 600px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
+  margin: 40px auto 0 auto;
+  display: flex;
+  padding: 10px 10px 10px 10px;
+}
+
+/* 左邊主要資訊區域 */
+.n_left{
+  width: 40%;
+}
+
+/* 插畫頭像定位框 */
+.n_head_area{
+  width: 100%;
+  height: 240px;
+  margin: 0 auto 0 auto;
+}
+
+
+/* 插畫頭像圓形框 */
+.n_head{
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin: 19px 0 0 -145px;
+  background-color: #FFB807;
+  overflow: hidden;
+}
+
+/* 插畫頭像圓形框的同色粗外框 */
+.n_head_border{
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin: -110px 0 0 -165px;
+  background-color: #ffffff;
+}
+
+/* 編號小塊 */
+.n_num{
+  position: absolute;
+  padding: 5px 25px 5px 25px;
+  top: 110px;
+  left: -55px;
+/*   width: 100px; */
+  height: 44px;
+  font-size: 25px;
+  font-family: "Comic Neue", cursive;
+  font-style: italic;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 25px;
+  text-align: center;
+  line-height: 36px;
+  letter-spacing: 2px;
+  z-index: 2;
+}
+
+/* 名片中的：工作狀態框 */
+.n_head_svg{
+  position: absolute;
+  z-index: 2;
+  width: 42%;
+  top: 50px;
+  left: 313px;
+}
+
+/* 名片中的：工作狀態的文字內容 */
+.n_head_svg text{
+  fill: white;
+  stroke: white;
+  stroke-width: 1px;
+  font-family: cwTeXYen;
+  font-size: 34px;
+  letter-spacing: 2px;
+  dominant-baseline: middle;
+}
+
+
+
+
+
+
+
+
+/* 暱稱 */
+.n_name{
+  width: 300px;
+  height: 50px;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  color: black;
+  font-family: 'cwTeXYen';
+  font-size: 40px;
+  font-style: bold;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+/* 職稱 */
+.n_job_title{
+  width: 300px;
+  height: 50px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* 技能框 */
+.n_skill_set{
+  width: 300px;
+  margin: 0 auto 0 auto;
+}
+
+/* 單項技能 */
+.n_skill{
+  width: 100%;
+  height: 45px;
+  margin: 12px auto 12px auto;
+  border-radius: 25px;
+  background-color: #ededed;
+  display: flex;
+  padding: 8px;
+}
+
+.n_skill_icon{
+  width: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.n_skill_text{
+  width: 88%;
+  padding: 3px 0 0 0;
+  font-size: 16px;
+  color: #808080;
+}
+
+
+/* 右邊兩個長文段落的區域 */
+.n_right{
+  width: 60%;
+  display: flex;
+}
+
+/* 單個長文段落 */
+.n_story{
+  width: 49%;
+  height: 100%;
+  padding: 60px 0 60px 0;
+  margin: 0 80px 0 0;
+}
+
+/* 兩個長文段落中間的灰色線條 */
+.n_story_vertical_line{
+  width: 4px;
+  height: 70%;
+  margin: 80px 40px 0 -43px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* 長文標題 */
+.n_story_title{
+  width: 100%;
+  text-align: center;
+  color: #666666;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* 分隔的黃色小塊 */
+.n_story_rectangle{
+  width: 45px;
+  height: 6px;
+  background-color: #ffcf54;
+  border-radius: 3px;
+  margin: 8px auto 24px auto;
+}
+
+/* 長文內文 */
+.n_story_text{
+  width: 100%;
+  margin: 0 auto 0 auto;
+  font-size: 15px;
+  font-weight: 350;
+  color: #999999;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+}
+
+
+
+/* 以下都在處理突出的插畫頭像的陰影 */
+
+/* 插畫頭像圓形框的同色粗外框的「陰影」的「定位框」 */
+.n_head_border_shadow_position{
+  position: absolute;
+  width: 1120px;
+  height: 600px;
+  background-color: #f2f2f2;
+  left: 50%;
+  margin: 40px 0 0 -560px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.n_head_border_shadow_left{
+  width: 40%;
+}
+
+/* 插畫頭像圓形框的同色粗外框的「陰影」 */
+.n_head_border_shadow{
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin: -110px 0 0 -165px;
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 30px #888888;
+}
+/* 以上都在處理突出的插畫頭像的陰影 */
+
+/* 以上都是名片 */
+
+
+
+
+
+
+
+
+
+/* 以下都是lightbox效果設定 */
+
+.namecard_position{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.namecard_position{
+  display: none;
+}
+
+.namecard_relative{
+  positon: relative;
+  width: 90%;
+  margin: 100px auto 100px auto;
+}
+
+
+/* 被「點擊指向」後 */
+.namecard_position:target{
+  display: flex;
+}
+
+
+.namecard_close{
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.namecard_close:after{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  text-align: center;
+  line-height: 36px;
+  font-size: 25px;
+  content: "×";
+  
+  position: absolute;
+  top: 30px;
+  right: 80px;
+  z-index: 1;
+  
+  cursor: pointer;
+}
+
+
+
+/* 黑色半透明的覆蓋層 */
+.namecard_close::before{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  content: "";
+  cursor: default;
+}
+
+
+
+/* 導覽列 */
+
+#top{
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;/*高度*/
+  z-index: 1;
+/*   background-color: rgba(0,0,0,0.6); */
+}
+
+#create{
+  font-size: 16px;
+  color: black;
+  padding: 0 18px 0 18px;
+  margin: 20px 80px 0 10px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: rgba(255,184,7,0.8);
+  text-decoration: none;
+}
+
+#create:hover{
+  color: #FFB807;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#about{
+  font-size: 16px;
+  color: white;
+  padding: 0 18px 0 18px;
+  margin: 20px 5px 0 15px;
+  line-height: 40px;
+  border-radius: 20px;
+  background-color: rgba(0,0,0,0.6);
+  text-decoration: none;
+}
+
+#about:hover{
+  color: #FFB807;
+/*   background-color: rgba(0,0,0,0.8); */
 }

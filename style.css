@@ -18,7 +18,7 @@
   box-sizing: border-box;
   color: gray;
   margin: 0px;
-   /*border: 0.1px solid black; */
+  /*border: 0.1px solid black; */
 }
 
 
@@ -28,12 +28,45 @@
   align-items: flex-end;
   justify-content: center;
   margin: 0 0 0 0;
-  padding: 120px 0 120px 0;
+  padding: 150px 0 250px 0;
 }
 
+
 .header_middle{
-  margin: 0 13px 0 13px;
-  
+
+}
+
+/*放網站名稱標準字的格子*/
+.header_middle1{
+  margin: 0 13px 0 13px; 
+  padding: 0 0 10px 0;
+  display: flex;
+  justify-content: center;
+  top: -40px;
+}
+
+/*網站名稱的標準字*/
+#logotype{
+  width: 75%;
+}
+
+/*網站名稱標準字下方的「副標題」*/
+.header_middle_subtitle{
+  font-size: 22px;
+  color: #000000;
+  letter-spacing: 2px;
+  text-align: center;
+  top: -18px;
+}
+
+.subtitle_line_frame{
+  display: flex;
+  justify-content: center;
+  top: -14px;
+}
+
+.header_middle2{
+  margin: 0 13px 0 13px; 
 }
 
 .header_left2, .header_right2{
@@ -52,32 +85,286 @@
 }
 
 
-.title{
-  width: 1000px;
-  margin: 300px auto;
-  margin-bottom: 20px;
-  font-family: 微軟正黑體;
-  font-size: 55px;
-  letter-spacing: 5px;
-  color: gray;
-  text-align: center;
+
+
+
+
+
+
+
+
+.intro_box{
+  width: 650px;
+  height: 350px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 30px #888888;
+  position: absolute;
+  left: 50%;
+  margin: -100px 0 0 -325px;
+  z-index: 3;
+}
+  
+
+
+  /*intro-box左邊的對話框*/
+
+.intro-box-quote-l{
+  height: 18%;
+  top: -53px;
+  left: 65px;
 }
 
-.sub_title{
-  width: 1000px;
-  margin: 10px auto;
-  padding: 0 0 0 0;
-  font-size: 30px;
-  font-family: "Comic Neue", cursive;
-  color: gray;
-  text-align: center;
+
+.intro-box-quote-l text{
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 3px;  
+  fill: #212121;
 }
 
-.intro_text{
-  width: 1000px;
-  margin: 50px auto;
-  text-align: center;
+
+
+  /*intro-box右邊的對話框*/
+
+.intro-box-quote-r{
+  height: 18%;
+  top: -53px;
+  left: 105px;
 }
+
+.intro-box-quote-r text{
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  fill: #212121;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header_2{
+  width: 100%;
+  height: 700px;
+  margin: 0 0 0 0;
+  padding: 50px 0 120px 0;
+  background-color: #515151;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.header_2_title_area{
+  display: flex;
+}
+
+
+.header_2_title{
+  font-size: 20px;
+  color: #bcbcbc;
+  height: 50px;
+  margin: 310px 16px 0 20px;
+  letter-spacing: 2px;
+}
+
+.header_2_title_hr{
+  width: 250px;
+  border-bottom: 2px #bcbcbc solid;
+  margin: 0 0 35px 0;
+}
+
+
+.header_2_icon_bigarea{
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 0 0;
+  
+}
+
+.header_2_icon_area{
+  width: 250px;
+/*  height: 220px;*/
+  margin: 0 0 0 0;
+  margin: 0 15px 0 15px;
+}
+
+
+.header_2_icon{
+  width: 170px;
+  height: 150px;
+  margin: 0px auto;
+}
+
+.header_2_icon_text{
+  font-size: 24px;
+  color: #f5f5f5;
+  letter-spacing: 2px;
+  text-align: center;
+
+}
+
+
+
+/*icon位置微調*/
+
+#h2icon1{
+  margin: 0 0 0 7px;
+}
+
+
+#h2icon2{
+  margin: -2px 0 0 0;
+}
+
+
+#h2icon3{
+  margin: 4px 0 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header_3{
+  width: 100%;
+  /*height: 700px;*/
+  margin: 0 0 0 0;
+  padding: 70px 0 70px 0;
+  background-color: #efefef;
+}
+
+
+
+.header_3_sec1{
+  width: 65%;
+  height: 350px;
+  /*background-color: #f5f5f5;*/
+  /*border: 1px solid #f5f5f5;*/
+  margin: 40px auto;
+  display: flex;
+  padding: 0px 15px 0px 15px;
+}
+
+
+.header_3_sec2{
+  width: 65%;
+  height: 350px;
+  /*background-color: #f5f5f5;*/
+  /*border: 1px solid #f5f5f5;*/
+  margin: 40px auto;
+  display: flex;
+  padding: 0px 15px 0px 15px;
+}
+
+
+.h3_content{
+  width: 50%;
+  height: 100%;
+  /*background-color: #ffffff;*/
+  margin: 0 5px 0 5px;
+  padding: 20px;
+}
+
+.h3_pre_title{
+  font-size: 20px;
+  color: #bcbcbc;
+  letter-spacing: 2px;
+}
+
+
+.h3_title{
+  font-size: 24px;
+  color: #515151;
+  letter-spacing: 2px;
+  font-weight: 900;
+  margin: 3px 0 30px 0;
+}
+
+.h3_text{
+  font-size: 15px;
+  color: #515151;
+  letter-spacing: 1px;
+  font-weight: 400;
+  line-height: 25px;
+  
+}
+
+
+.sec1_pre_title_hr{
+  width: 110px;
+  /*height: 10px;*/
+  border-bottom: 2px #f6bd2e solid;
+  left: 170px;
+  top: -16px;
+}
+
+
+.sec2_pre_title_hr{
+  width: 110px;
+  /*height: 10px;*/
+  border-bottom: 2px #f6bd2e solid;
+  left: 80px;
+  top: -16px;
+}
+
+
+
+
+
+
+.h3_pic{
+  width: 50%;
+  height: 80%;
+  background-color: #f6bd2e;
+  opacity: 40%;
+  margin: 0 5px 0 5px;
+}
+
+/*
+ #5dcfed
+  #492dff*/
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,6 +403,8 @@
   font-style: italic;
   margin: 0 0 6px 0;
 }
+
+
 
 
 /* 插畫頭像圓形框 */

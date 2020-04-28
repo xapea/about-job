@@ -28,7 +28,8 @@
   align-items: flex-end;
   justify-content: center;
   margin: 0 0 0 0;
-  padding: 150px 0 250px 0;
+  padding: 130px 0 300px 0;
+  background-color: #f7f7f7;
 }
 
 
@@ -99,16 +100,16 @@
 
 
 .intro_box{
-  width: 650px;
+  width: 750px;
   height: 350px;
-  border: 1px solid gray;
-  border-radius: 8px;
-  background-color: #f2f2f2;
+  /*border: 1px solid gray;*/
+  border-radius: 12px;
+  background-color: #fcfcfc;
   box-shadow: 5px 5px 30px #888888;
   position: absolute;
   left: 50%;
-  margin: -100px 0 0 -325px;
-  padding: 0px 50px 10px 50px;
+  margin: -100px 0 0 -375px;
+  padding: 0px 100px 10px 100px;
   z-index: 1;
 }
   
@@ -125,8 +126,8 @@
   /*intro-box左邊的對話框*/
 .intro-box-quote-l{
   height: 18%;
-  top: -53px;
-  left: 30px;
+  top: -70px;
+  /*left: 0px;*/
 }
 
 .intro-box-quote-l text{
@@ -141,7 +142,7 @@
   /*intro-box右邊的對話框*/
 .intro-box-quote-r{
   height: 18%;
-  top: -53px;
+  top: -70px;
   left: 90px;
 }
 
@@ -171,7 +172,7 @@
   height: 700px;
   margin: 0 0 0 0;
   padding: 50px 0 120px 0;
-  background-color: #515151;
+  background-color: #efefef;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -186,7 +187,7 @@
 
 .header_2_title{
   font-size: 20px;
-  color: #bcbcbc;
+  color: #515151;
   height: 50px;
   margin: 310px 16px 0 20px;
   letter-spacing: 2px;
@@ -194,7 +195,7 @@
 
 .header_2_title_hr{
   width: 250px;
-  border-bottom: 2px #bcbcbc solid;
+  border-bottom: 2px #515151 solid;
   margin: 0 0 35px 0;
 }
 
@@ -202,7 +203,7 @@
 .header_2_icon_bigarea{
   display: flex;
   justify-content: center;
-  margin: 25px 0 0 0;
+  margin: 50px 0 0 0;
   
 }
 
@@ -222,7 +223,7 @@
 
 .header_2_icon_text{
   font-size: 24px;
-  color: #f5f5f5;
+  color: #515151;
   letter-spacing: 2px;
   text-align: center;
 
@@ -272,7 +273,7 @@
   width: 100%;
   /*height: 700px;*/
   margin: 0 0 0 0;
-  padding: 75px 0 25px 0;
+  padding: 25px 0 25px 0;
   background-color: #efefef;
 }
 
@@ -283,7 +284,7 @@
   height: 310px;
   /*background-color: #f5f5f5;*/
   /*border: 1px solid #f5f5f5;*/
-  margin: 40px auto;
+  margin: 70px auto;
   display: flex;
   padding: 0px 15px 0px 15px;
 }
@@ -294,7 +295,7 @@
   height: 310px;
   /*background-color: #f5f5f5;*/
   /*border: 1px solid #f5f5f5;*/
-  margin: 40px auto;
+  margin: 70px auto;
   display: flex;
   padding: 0px 15px 0px 15px;
 }
@@ -308,10 +309,18 @@
   padding: 20px;
 }
 
+
+.h3_content_sec2{
+  padding: 20px 5px 20px 35px;
+}
+
+
+
 .h3_pre_title{
   font-size: 20px;
-  color: #bcbcbc;
+  color: #f6bd2e;
   letter-spacing: 2px;
+  display: none;
 }
 
 
@@ -478,25 +487,44 @@
 }
 
 /* 工作狀態框的顏色 */
-/* 快樂工作中 */
+
+
+/* 充實工作中 */
 .enjoying{
-  fill: #eb546b;
+  fill: #e6285a;
 }
 
-/* 思考轉職中 */
-.turning{
-  fill: #4f88b0;
-}
-
-/* 爆肝工作中 */
+/* 痛苦工作中 */
 .burning{
-  fill: #7871ab;
+  fill: #f4762f;
+}
+
+/* 悠閒工作中 */
+.skating{
+  fill: #c4d61d;
+}
+
+/* 轉換跑道中 */
+.turning{
+  fill: #8d57f7;
+}
+
+/* 熱烈求職中 */
+.chasing{
+  fill: #d93fef;
+}
+
+/* 學習進修中 */
+.learning{
+  fill: #839632;
 }
 
 /* 悠閒放假中 */
 .relaxing{
-  fill: #3dd196;
+  fill: #61db9b;
 }
+
+
 
 
 

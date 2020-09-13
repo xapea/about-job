@@ -1,947 +1,106 @@
-/* 引入工作狀態的字體 */
-@font-face{
-  font-family: 'cwTeXYen';
-  font-style: normal;
-  font-weight: 500;
-  src: url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot);
-  src: url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.eot?#iefix) format('embedded-opentype'),
-       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff2) format('woff2'),
-       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.woff) format('woff'),
-       url(//fonts.gstatic.com/ea/cwtexyen/v3/cwTeXYen-zhonly.ttf) format('truetype');
-}
-
-
-
+/* -- DEFAULTS -- */
 
 *{
-  position: relative; 
-  box-sizing: border-box;
-  color: gray;
-  margin: 0px;
-  /*border: 0.1px solid black; */
+  position: relative
 }
 
+div, ul, li{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
 
-.header{
+/* -- FLUID GRID STYLES -- */
+
+#Grid{
+  margin-bottom: 40px;
+  text-align: justify;
+  font-size: 0.1px;
+}
+
+#Grid li{
+  display: inline-block;
+  background: #eee;
+  background-image: url("data:image/jpeg;base64,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");
+  width: 23%;
+  padding-top: 23%; /* Used instead of height to give elements fluid, width-based height */
+  margin-bottom: 2.5%;
+  border: solid 1px
+}
+
+#Grid:after{
+  content: '';
+  display: inline-block;
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin: 0 0 0 0;
-  padding: 130px 0 300px 0;
-  background-color: #f7f7f7;
+  border-top: 10px dashed #922d8d; /* Border added to make element visible for demonstration purposes */
 }
 
-
-.header_middle{
-
+#Grid .placeholder{
+  padding: 0;
+  border-top: 10px solid #922d8d; /* Border added to make element visible for demonstration purposes */
 }
 
-/*放網站名稱標準字的格子*/
-.header_middle1{
-  margin: 0 13px 0 13px; 
-  padding: 0 0 10px 0;
-  display: flex;
-  justify-content: center;
-  top: -40px;
-}
-
-/*網站名稱的標準字*/
-#logotype{
-  width: 77%;
-}
-
-/*網站名稱標準字下方的「副標題」*/
-.header_middle_subtitle{
-  font-size: 22px;
-  font-weight: 900;
-  color: #000000;
-  letter-spacing: 2px;
-  text-align: center;
-  top: -18px;
-}
-
-.subtitle_line_frame{
-  display: flex;
-  justify-content: center;
-  top: -14px;
-}
-
-.header_middle2{
-  margin: 0 15px 0 15px; 
-}
-
-.header_left2, .header_right2{
-  margin: 10px 0 0 0;
-}
-
-
-.header_right{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.header_right1{
-  height: 233px;
-}
-
-
-/*右上象仔的對話出血設定*/
-#r1{
-  overflow: visible;
-}
-
-
-
-
-
-
-
-
-.intro_box{
-  width: 750px;
-  height: 350px;
-  /*border: 1px solid gray;*/
-  border-radius: 12px;
-  background-color: #fcfcfc;
-  box-shadow: 5px 5px 30px #888888;
-  position: absolute;
-  left: 50%;
-  margin: -100px 0 0 -375px;
-  padding: 0px 100px 10px 100px;
-  z-index: 1;
-}
-  
-
-.intro_text{
-  top: -15px;
-  font-size: 16px;
-  color: #212121;
-  line-height: 30px;
-}
-
-
-
-  /*intro-box左邊的對話框*/
-.intro-box-quote-l{
-  height: 18%;
-  top: -70px;
-  /*left: 0px;*/
-}
-
-.intro-box-quote-l text{
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 3px;  
-  fill: #212121;
-}
-
-
-
-  /*intro-box右邊的對話框*/
-.intro-box-quote-r{
-  height: 18%;
-  top: -70px;
-  left: 90px;
-}
-
-.intro-box-quote-r text{
-  font-size: 30px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  fill: #212121;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.header_2{
-  width: 100%;
-  height: 700px;
-  margin: 0 0 0 0;
-  padding: 50px 0 120px 0;
-  background-color: #efefef;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.header_2_title_area{
-  display: flex;
-}
-
-
-.header_2_title{
-  font-size: 20px;
-  color: #515151;
-  height: 50px;
-  margin: 310px 16px 0 20px;
-  letter-spacing: 2px;
-}
-
-.header_2_title_hr{
-  width: 250px;
-  border-bottom: 2px #515151 solid;
-  margin: 0 0 35px 0;
-}
-
-
-.header_2_icon_bigarea{
-  display: flex;
-  justify-content: center;
-  margin: 50px 0 0 0;
-  
-}
-
-.header_2_icon_area{
-  width: 250px;
-/*  height: 220px;*/
-  margin: 0 0 0 0;
-  margin: 0 15px 0 15px;
-}
-
-
-.header_2_icon{
-  width: 170px;
-  height: 150px;
-  margin: 0px auto;
-}
-
-.header_2_icon_text{
-  font-size: 24px;
-  color: #515151;
-  letter-spacing: 2px;
-  text-align: center;
-
-}
-
-
-
-/*icon位置微調*/
-
-#h2icon1{
-  margin: 0 0 0 7px;
-}
-
-
-#h2icon2{
-  margin: -2px 0 0 0;
-}
-
-
-#h2icon3{
-  margin: 4px 0 0 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.header_3{
-  width: 100%;
-  /*height: 700px;*/
-  margin: 0 0 0 0;
-  padding: 25px 0 25px 0;
-  background-color: #efefef;
-}
-
-
-
-.header_3_sec1{
-  width: 65%;
-  height: 310px;
-  /*background-color: #f5f5f5;*/
-  /*border: 1px solid #f5f5f5;*/
-  margin: 70px auto;
-  display: flex;
-  padding: 0px 15px 0px 15px;
-}
-
-
-.header_3_sec2{
-  width: 65%;
-  height: 310px;
-  /*background-color: #f5f5f5;*/
-  /*border: 1px solid #f5f5f5;*/
-  margin: 70px auto;
-  display: flex;
-  padding: 0px 15px 0px 15px;
-}
-
-
-.h3_content{
-  width: 50%;
-  height: 100%;
-  /*background-color: #ffffff;*/
-  margin: 0 5px 0 5px;
-  padding: 20px;
-}
-
-
-.h3_content_sec2{
-  padding: 20px 5px 20px 35px;
-}
-
-
-
-.h3_pre_title{
-  font-size: 20px;
-  color: #f6bd2e;
-  letter-spacing: 2px;
-  display: none;
-}
-
-
-.h3_title{
-  font-size: 24px;
-  color: #515151;
-  letter-spacing: 2px;
-  font-weight: 900;
-  margin: 3px 0 30px 0;
-}
-
-.h3_text{
-  font-size: 15px;
-  color: #515151;
-  letter-spacing: 1px;
-  font-weight: 400;
-  line-height: 25px;
-  
-}
-
-
-.sec1_pre_title_hr{
-  width: 110px;
-  /*height: 10px;*/
-  border-bottom: 2px #f6bd2e solid;
-  left: 170px;
-  top: -16px;
-}
-
-
-.sec2_pre_title_hr{
-  width: 110px;
-  /*height: 10px;*/
-  border-bottom: 2px #f6bd2e solid;
-  left: 80px;
-  top: -16px;
-}
-
-
-
-
-
-
-.h3_pic{
-  width: 50%;
-  height: 80%;
-  margin: 0 5px 0 5px;
-  /*border: 1px solid black;*/
-}
-
-#h3_pic1_svg{
-  top: -50px;
-  left: 20px;
-}
-
-
-#h3_pic2_svg{
-  left: -20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 小人排排站整個區域 */
-.wall{
-  width: 1021px;
-  margin: 150px auto;
-  padding: 10px 10px 10px 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-}
-
-/* 單顆小頭的整個單位區域 */
-.head_area{
-  width: 180px;
-  height: 238px;
-  padding: 15px 5px 0 5px;
-  margin: 10px 10px 40px 10px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition-duration: 0.1s;
-}
-
-
-
-
-/* 編號 */
-.num{
-  color: #a6a6a6;
-  font-size: 25px;
-  font-family: "Comic Neue", cursive;
-  font-style: italic;
-  margin: 0 0 6px 0;
-}
-
-
-
-
-/* 插畫頭像圓形框 */
-.head{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  text-align: center;
-  margin: 0 0 0 0;
-  overflow: hidden;
-}
-
-
-/* 暱稱、怎麼稱呼自己 */
-.name{
-  width: 100%;
-  height: 25px;
-  margin: 10px 0 0 0;
-  text-align: center;
-  font-size: 18px;
-  color: black;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-/* 職稱、形容自己在做的事 */
-.job_title{
-  width: 90%;
-  height: 26px;
-  margin: 4px 0 0 0;
-  color: #c7c7c7;
-  text-align: center;
-  font-size: 14px;
-  line-height: 26px;
-}
-
-/* 工作狀態框 */
-.head_svg{
-  position: absolute;
-  left: 118px;
-  top: 15px;
-  width: 50%;
-}
-  
-/* 工作狀態的文字內容 */
-.head_svg text{
-  fill: white;
-  stroke: white;
-  stroke-width: 1px;
-  font-family: cwTeXYen;
-  font-size: 38px;
-}
-
-/* 工作狀態框的顏色 */
-
-
-/* 充實工作中 */
-.enjoying{
-  fill: #e6285a;
-}
-
-/* 痛苦工作中 */
-.burning{
-  fill: #f4762f;
-}
-
-/* 悠閒工作中 */
-.skating{
-  fill: #c4d61d;
-}
-
-/* 轉換跑道中 */
-.turning{
-  fill: #8d57f7;
-}
-
-/* 熱烈求職中 */
-.chasing{
-  fill: #d93fef;
-}
-
-/* 學習進修中 */
-.learning{
-  fill: #839632;
-}
-
-/* 悠閒放假中 */
-.relaxing{
-  fill: #61db9b;
-}
-
-
-
-
-
-
-/* head_area的hover設定 */
-.head_svg{
-  opacity: 0;
-}
-
-.head_area:hover .head_svg{
-  opacity: 1;
-  transition-delay: 0.2s;
-  transition-duration: 0.3s;
-  
-}
-
-.head_area:hover .num{
-  color: black;
-}
-
-.head_area:hover .job_title{
-  color: white;
-  background-color: #a6a6a6;
-  border-radius: 20px;
-}
-
-.head_area:hover{
-  
-  background-color: #f2f2f2;
-  border-radius: 8px;
-  transition-duration: 0.2s;
+/* -- MEDIA QUERIES DEFINING RESPONSIVE LAYOUTS -- */
+
+/* 3 COL */
+
+@media (max-width: 800px){
+  #Grid li{
+    width: 31%;
+    padding-top: 31%;
+    margin-bottom: 3%;
   }
-
-.head_area:hover .bi-1{
-  fill: #FFB807;
 }
 
-.head_area:hover .b-1{
-  fill: #FFB807;
+/* 2 COL */
+
+@media (max-width: 600px){
+  #Grid li{
+    width: 48%;
+    padding-top: 48%;
+    margin-bottom: 4%;
+  }
 }
 
-.head_area:hover .e-1{
-  fill: #FFB807;
-}
+/* SINGLE COL */
 
-.head_area:hover .s-1{
-  fill: #FFB807;
-}
-
-.head_area:hover .r-1{
-  fill: #FFB807;
-}
-
-
-
-
-
-/*以下都是名片*/
-.namecard{
-  width: 1120px;
-  height: 600px;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 5px 5px 30px rgba(0,0,0,0.5);
-  margin: 40px auto 0 auto;
-  display: flex;
-  padding: 10px 10px 10px 10px;
-}
-
-/* 左邊主要資訊區域 */
-.n_left{
-  width: 40%;
-}
-
-/* 插畫頭像定位框 */
-.n_head_area{
-  width: 100%;
-  height: 240px;
-  margin: 0 auto 0 auto;
+@media (max-width: 400px){
+  #Grid li{
+    width: 100%;
+    padding-top: 100%;
+    margin-bottom: 5%;
+  }
 }
 
 
-/* 插畫頭像圓形框 */
-.n_head{
-  width: 290px;
-  height: 290px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin: 19px 0 0 -145px;
-  background-color: #FFB807;
-  overflow: hidden;
+/* -- LEGEND STYLES (NOT PART OF GRID FRAMEWORK) -- */
+
+h1{
+  font: 600 20px "Helvetica Neue";
+  text-align: right;
+  text-transform: uppercase;
 }
 
-/* 插畫頭像圓形框的同色粗外框 */
-.n_head_border{
-  width: 330px;
-  height: 330px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin: -110px 0 0 -165px;
-  background-color: #ffffff;
+label{
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  display: block;
+  font: 100 22px "Helvetica Neue"; 
+  border-left: 10px solid #922d8d;
 }
 
-/* 編號小塊 */
-.n_num{
-  position: absolute;
-  padding: 5px 25px 5px 25px;
-  top: 110px;
-  left: -55px;
-/*   width: 100px; */
-  height: 44px;
-  font-size: 25px;
-  font-family: "Comic Neue", cursive;
-  font-style: italic;
-  color: white;
-  background-color: rgba(0,0,0,0.6);
-  border-radius: 25px;
-  text-align: center;
-  line-height: 36px;
-  letter-spacing: 2px;
-  z-index: 2;
+label:last-of-type{
+  border-left: 10px dotted #922d8d;
 }
 
-/* 名片中的：工作狀態框 */
-.n_head_svg{
-  position: absolute;
-  z-index: 2;
-  width: 42%;
-  top: 50px;
-  left: 313px;
-}
-
-/* 名片中的：工作狀態的文字內容 */
-.n_head_svg text{
-  fill: white;
-  stroke: white;
-  stroke-width: 1px;
-  font-family: cwTeXYen;
-  font-size: 34px;
-  letter-spacing: 2px;
-  dominant-baseline: middle;
+p{
+  font: 200 15px/1.5em "Helvetica Neue";
+  max-width: 400px;
+  margin-bottom: 30px;
+  color: #333;
 }
 
 
-
-
-
-
-
-
-/* 暱稱 */
-.n_name{
-  width: 300px;
-  height: 50px;
-  margin: 0 auto 0 auto;
-  text-align: center;
-  color: black;
-  font-family: 'cwTeXYen';
-  font-size: 40px;
-  font-style: bold;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-/* 職稱 */
-.n_job_title{
-  width: 300px;
-  height: 50px;
-  margin: 0 auto 20px auto;
-  text-align: center;
-  color: #666666;
-  font-size: 20px;
-  font-weight: 400;
-  letter-spacing: 2px;
-}
-
-/* 技能框 */
-.n_skill_set{
-  width: 300px;
-  margin: 0 auto 0 auto;
-}
-
-/* 單項技能 */
-.n_skill{
-  width: 100%;
-  height: 45px;
-  margin: 12px auto 12px auto;
-  border-radius: 25px;
-  background-color: #ededed;
-  display: flex;
-  padding: 8px;
-}
-
-.n_skill_icon{
-  width: 12%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.n_skill_text{
-  width: 88%;
-  padding: 3px 0 0 0;
-  font-size: 16px;
-  color: #808080;
-}
-
-
-/* 右邊兩個長文段落的區域 */
-.n_right{
-  width: 60%;
-  display: flex;
-}
-
-/* 單個長文段落 */
-.n_story{
-  width: 49%;
-  height: 100%;
-  padding: 60px 0 60px 0;
-  margin: 0 80px 0 0;
-}
-
-/* 兩個長文段落中間的灰色線條 */
-.n_story_vertical_line{
-  width: 4px;
-  height: 70%;
-  margin: 80px 40px 0 -43px;
-  background-color: #e0e0e0;
-  border-radius: 2px;
-  opacity: 0.6;
-}
-
-/* 長文標題 */
-.n_story_title{
-  width: 100%;
-  text-align: center;
-  color: #666666;
-  font-size: 18px;
-  font-weight: 900;
-}
-
-/* 分隔的黃色小塊 */
-.n_story_rectangle{
-  width: 45px;
-  height: 6px;
-  background-color: #ffcf54;
-  border-radius: 3px;
-  margin: 8px auto 24px auto;
-}
-
-/* 長文內文 */
-.n_story_text{
-  width: 100%;
-  margin: 0 auto 0 auto;
-  font-size: 15px;
-  font-weight: 350;
-  color: #999999;
-  line-height: 26px;
-  letter-spacing: 0.5px;
-}
-
-
-
-/* 以下都在處理突出的插畫頭像的陰影 */
-
-/* 插畫頭像圓形框的同色粗外框的「陰影」的「定位框」 */
-.n_head_border_shadow_position{
-  position: absolute;
-  width: 1120px;
-  height: 600px;
-  background-color: #f2f2f2;
-  left: 50%;
-  margin: 40px 0 0 -560px;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-.n_head_border_shadow_left{
-  width: 40%;
-}
-
-/* 插畫頭像圓形框的同色粗外框的「陰影」 */
-.n_head_border_shadow{
-  width: 330px;
-  height: 330px;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin: -110px 0 0 -165px;
-  background-color: #f2f2f2;
-  box-shadow: 5px 5px 30px #888888;
-}
-/* 以上都在處理突出的插畫頭像的陰影 */
-
-/* 以上都是名片 */
-
-
-
-
-
-
-
-
-
-/* 以下都是lightbox效果設定 */
-
-.namecard_position{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.namecard_position{
-  display: none;
-}
-
-.namecard_relative{
-  positon: relative;
-  width: 90%;
-  margin: 100px auto 100px auto;
-}
-
-
-/* 被「點擊指向」後 */
-.namecard_position:target{
-  display: flex;
-}
-
-
-.namecard_close{
-  position: absolute;
-  top: -10px;
-  right: -10px;
-}
-
-.namecard_close:after{
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(0,0,0,0.7);
-  color: white;
-  text-align: center;
-  line-height: 36px;
-  font-size: 25px;
-  content: "×";
-  
-  position: absolute;
-  top: 30px;
-  right: 80px;
-  z-index: 1;
-  
-  cursor: pointer;
-}
-
-
-
-/* 黑色半透明的覆蓋層 */
-.namecard_close::before{
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  content: "";
-  cursor: default;
-}
-
-
-
-/* 導覽列 */
-
-#top{
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 60px;/*高度*/
-  z-index: 1;
-/*   background-color: rgba(0,0,0,0.6); */
-}
-
-#create{
-  font-size: 16px;
-  color: black;
-  padding: 0 18px 0 18px;
-  margin: 20px 32px 0 10px;
-  line-height: 40px;
-  border-radius: 20px;
-  background-color: rgba(255,184,7,0.8);
-  text-decoration: none;
-  box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
-}
-
-#create:hover{
-  color: #FFB807;
-  background-color: rgba(0,0,0,0.8);
-}
-
-#about{
-  font-size: 16px;
-  color: white;
-  padding: 0 18px 0 18px;
-  margin: 20px 5px 0 15px;
-  line-height: 40px;
-  border-radius: 20px;
-  background-color: rgba(0,0,0,0.6);
-  text-decoration: none;
-  box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
-}
-
-#about:hover{
-  color: #FFB807;
-/*   background-color: rgba(0,0,0,0.8); */
+#pic1{
+ background-color: #222;
 }
